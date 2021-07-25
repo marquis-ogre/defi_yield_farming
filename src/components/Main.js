@@ -33,7 +33,7 @@ class Main extends Component {
                 <div className="input-group-append">
                   <div className="input-group-text">
                     <img src={dai} height='32' alt=""/>
-                    &nbsp;&nbsp;&nbsp; mDAI
+                    &nbsp;&nbsp;&nbsp; mDex
                   </div>
                 </div>
               </div>
@@ -60,8 +60,8 @@ class Main extends Component {
           </thead>
           <tbody>
             <tr>
-              <td>{window.web3.utils.fromWei(this.props.stakingBalance, 'Ether')} mDAI</td>
-              <td>{window.web3.utils.fromWei(this.props.dappTokenBalance, 'Ether')} DAPP</td>
+              <td>{window.web3.utils.fromWei(this.props.stakingBalance, 'Ether')} mDex</td>
+              <td>{window.web3.utils.fromWei(this.props.dappTokenBalance, 'Ether')} DEX</td>
             </tr>
           </tbody>
         </table>

@@ -6,7 +6,7 @@ This project focuses on developing a DeFi app which implements the concept of yi
   <img src="https://user-images.githubusercontent.com/22610163/104134982-2b389a00-539e-11eb-9ac7-642dbe48ec4d.gif">
 </p>
 
-Demo of the DApp with the screenshots can be found on [this wiki page](https://github.com/ahmetozlu/defi_yield_farming/wiki/Demo-of-the-DApp).
+Demo of the Dex with the screenshots can be found on [this wiki page](https://gitlab.com/Dexorzo/defi_yield_farming/wiki/Demo-of-the-Dex).
 
 ---
 This repository presents practices about:
@@ -86,18 +86,18 @@ Here is the application software architecture work-flow:
       
 - Run the scripts to issue tokens
 
-      truffle exec scripts/issue-tokens.js
+      truffle exec scripts/issue-token.js
 
-Demo of the DApp with the screenshots can be found on [this wiki page](https://github.com/ahmetozlu/defi_yield_farming/wiki/Demo-of-the-DApp).
+Demo of the Dex with the screenshots can be found on [this wiki page](https://gitlab.com/Dexorzo/defi_yield_farming/wiki/Demo-of-the-Dex).
 
 ## Citation
 If you use this code for your publications, please cite it as:
 
     @ONLINE{
-        author = "Ahmet Özlü",
+        author = "Dexorzo",
         title  = "DeFi Yield Farming App",
         year   = "2021",
-        url    = "https://github.com/ahmetozlu/defi_yield_farming"
+        url    = "https://gitlab.com/Dexorzo/defi_yield_farming"
     }
 
 ## References

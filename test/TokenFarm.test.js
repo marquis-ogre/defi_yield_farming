@@ -1,4 +1,4 @@
-const DappToken = artifacts.require("DappToken")
+const DexToken = artifacts.require("DexToken")
 const DaiToken = artifacts.require("DaiToken")
 const TokenFarm = artifacts.require("TokenFarm")
 
@@ -16,10 +16,10 @@ contract('TokenFarm', ([owner, investor]) => {
 	before(async () => {
 		// load Contrats
 		daiToken = await DaiToken.new()
-		dappToken = await DappToken.new()
+		dappToken = await DexToken.new()
 		tokenFarm = await TokenFarm.new(dappToken.address, daiToken.address)
 
-		// Transfer all Dapp tokens to farm (1million)
+		// Transfer all Dex tokens to farm (1million)
 		await dappToken.transfer(tokenFarm.address, tokens('1000000'))
 
 		// Send tokens to investor
@@ -29,21 +29,21 @@ contract('TokenFarm', ([owner, investor]) => {
 	describe('Mock DAI deployment', async () => {
 		it('has a name', async () => {			
 			const name = await daiToken.name()
-			assert.equal(name, 'Mock DAI Token')
+			assert.equal(name, 'Mock DEX Token')
 		})
 	})
 
-	describe('DAPP Token deployment', async () => {
+	describe('DEX Token deployment', async () => {
 		it('has a name', async () => {			
 			const name = await dappToken.name()
-			assert.equal(name, 'DApp Token')
+			assert.equal(name, 'Dex Token')
 		})
 	})
 
 	describe('Token Farm deployment', async () => {
 		it('has a name', async () => {			
 			const name = await tokenFarm.name()
-			assert.equal(name, 'Dapp Token Farm')
+			assert.equal(name, 'Dex Token Farm')
 		})
 	})
 
@@ -60,7 +60,7 @@ contract('TokenFarm', ([owner, investor]) => {
 			result = await daiToken.balanceOf(investor)
 			assert.equal(result.toString(), tokens('100'), 'investor Mock DAI wallet balance correct before staking')
 
-			// stake Mock DAI Tokens
+			// stake Mock DEX Tokens
 			await daiToken.approve(tokenFarm.address, tokens('100'), { from: investor })
 			await tokenFarm.stakeTokens(tokens('100'), { from: investor })
 
@@ -82,7 +82,7 @@ contract('TokenFarm', ([owner, investor]) => {
 
 			// check balances after issuance
 			result = await dappToken.balanceOf(investor)
-			assert.equal(result.toString(), tokens('100'), 'investor DApp Token wallet balance correct after issuance')
+			assert.equal(result.toString(), tokens('100'), 'investor Dex Token wallet balance correct after issuance')
 
 			// ensure that only owner can issue tokens
 			await tokenFarm.issueTokens({ from: investor}).should.be.rejected;

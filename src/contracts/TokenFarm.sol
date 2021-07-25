@@ -1,12 +1,12 @@
 pragma solidity ^0.5.0;
 
-import "./DappToken.sol";
+import "./DexToken.sol";
 import "./DaiToken.sol";
 
 contract TokenFarm {		
-	string public name = "Dapp Token Farm";
+	string public name = "Dex Token Farm";
 	address public owner;
-	DappToken public dappToken;
+	DexToken public dappToken;
 	DaiToken public daiToken;	
 
 	address[] public stakers;
@@ -14,7 +14,7 @@ contract TokenFarm {
 	mapping(address => bool) public hasStaked;
 	mapping(address => bool) public isStaking;
 
-	constructor(DappToken _dappToken, DaiToken _daiToken) public {
+	constructor(DexToken _dappToken, DaiToken _daiToken) public {
 		dappToken = _dappToken;
 		daiToken = _daiToken;
 		owner = msg.sender;
@@ -41,7 +41,7 @@ contract TokenFarm {
 		hasStaked[msg.sender] = true;
 	}
 
-	// Unstaking Tokens (Withdraw): Withdraw money from DApp.
+	// Unstaking Tokens (Withdraw): Withdraw money from Dex.
 	function unstakeTokens() public {
 		// fetch staking balance
 		uint balance = stakingBalance[msg.sender];
@@ -61,7 +61,7 @@ contract TokenFarm {
 
 	/* Issuing Tokens: Earning interest which is issuing tokens for people who stake them.
 
-	Core Thing: Distribute DApp tokens as interes and also allow the investor to unstake their tokens
+	Core Thing: Distribute Dex tokens as interes and also allow the investor to unstake their tokens
 	from the app so give them interest using the app. */
 	function issueTokens() public {
 		// only owner can call this function
