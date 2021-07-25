@@ -20,6 +20,7 @@
     "react-dom": "16.8.4",
     "react-scripts": "^4.0.1",
     "truffle": "^5.1.58",
+    "truffle-hdwallet-provider-privkey": "^0.3.0",
     "web3": "1.2.11"
   },
   "scripts": {
@@ -38,6 +39,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/register": "^7.12.10"
+    "@babel/register": "^7.12.10",
+    "@truffle/hdwallet-provider": "^1.4.2"
   }
 }
